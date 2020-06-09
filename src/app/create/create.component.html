@@ -1,0 +1,51 @@
+<h1>create Customer!</h1>
+<form [formGroup]="customerForm"  (ngSubmit)="createCs()">
+  <table>
+    <tr>
+      <td> Name:</td>
+      <td><input type="text" formControlName="name"/></td>
+      <div role="alert" *ngIf="customerForm.get('name').invalid && customerForm.get('name').touched">
+        Invalid name!
+      </div>
+    </tr>
+    <tr>
+      <td>Contact:</td>
+      <td><input type="text" formControlName="contact"/></td>
+      <div role="alert" *ngIf="customerForm.get('contact').invalid && customerForm.get('contact').touched">
+        Invalid contact!
+      </div>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" formControlName="email"/></td>
+      <div role="alert" *ngIf="customerForm.get('email').invalid && customerForm.get('email').touched">
+        Invalid email!
+      </div>
+    </tr>
+    <tr>
+      <td>Province:</td>
+      <td>
+        <ng-autocomplete [data]="provinces" [searchKeyword]="keywordProvince"
+                         (selected)="checkCreate()"
+                         (inputChanged)="checkCreate()"
+                         (inputFocused)="checkCreate()"
+                         [itemTemplate]="itemTemplateProvince"
+                         [notFoundTemplate]="notFoundTemplateProvince"
+                         formControlName="province"></ng-autocomplete>
+        <!--      <select [(ngModel)]="province" >-->
+        <!--        <option *ngFor="let province of provinces " [value]='province'>{{province.name}}</option>-->
+        <!--      </select>-->
+        <ng-template #notFoundTemplateProvince let-notFound>
+          <span><span [innerHTML]="notFound"></span></span>
+        </ng-template>
+        <ng-template #itemTemplateProvince let-item>
+          <span [innerHTML]="item.name"></span>
+        </ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Create customer" [disabled]="customerForm.invalid"></td>
+    </tr>
+  </table>
+</form>

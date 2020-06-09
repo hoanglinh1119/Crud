@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Quan-li-tinh"
+    }
+  },
+  "defaultProject": "Quan-li-tinh",
+  "cli": {
+    "analytics": "99eacf62-30ec-40dc-aa2e-7fe751ac5ef1"
+  }
 }

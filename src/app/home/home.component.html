@@ -1,0 +1,15 @@
+<h1>Customers</h1>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th> Email</th>
+    <th>Province</th>
+  </tr>
+  <tr *ngFor="let c of customer">
+    <td>{{c.name}}</td>
+    <td>{{c.contact}}</td>
+    <td>{{c.email}}</td>
+    <td> {{c.province.name}}</td>
+  </tr>
+</table>
